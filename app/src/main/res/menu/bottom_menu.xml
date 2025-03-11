@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/home_icon"
+        android:title="Home"
+        android:visible="true"/>
+
+    <item
+        android:id="@+id/analyzeFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/analyze_icon"
+        android:title="Analyze"
+        android:visible="true"/>
+    <item
+        android:id="@+id/searchFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/search_icon"
+        android:title="Search"
+        android:visible="true"/>
+    <item
+        android:id="@+id/botFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/bot_icon"
+        android:title="ChemBot"
+        android:visible="true"/>
+    <item
+        android:id="@+id/webFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:icon="@drawable/ptable_icon"
+        android:title="Table"
+        android:visible="true" />
+
+</menu>

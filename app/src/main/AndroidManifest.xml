@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Atomica"
         tools:targetApi="31">
         <activity
+            android:name=".BaseActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Atomica">
+
+        </activity>
+        <activity
             android:name=".SplashActivity"
             android:exported="false"
             android:theme="@style/Theme.Atomica" />
@@ -24,6 +30,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
         </activity>
     </application>
 

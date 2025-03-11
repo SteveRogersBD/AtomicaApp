@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Background gradient -->
+    <gradient
+        android:startColor="#FF6F61"
+        android:endColor="#FFA500"
+        android:angle="45" />
+
+    <!-- Rounded corners -->
+    <corners android:bottomLeftRadius="25dp"
+            android:bottomRightRadius="25dp" />
+
+    <!-- Optional padding for content -->
+    <padding
+        android:left="16dp"
+        android:top="16dp"
+        android:right="16dp"
+        android:bottom="16dp" />
+
+    <!-- Shadow effect -->
+</shape>
