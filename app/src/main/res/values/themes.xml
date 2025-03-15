@@ -1,9 +1,40 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Atomica" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
+        <item name="colorPrimary">#1A2526</item>
+        <item name="colorPrimaryVariant">#2E3B4E</item>
+        <item name="colorOnPrimary">@color/white</item>
+
+        <item name="colorSecondary">#39FF14</item>
+        <item name="colorSecondaryVariant">#2ECC71</item>
+        <item name="colorOnSecondary">@android:color/black</item>
+
+        <item name="android:colorBackground">@color/colorPrimaryVariant</item>
+        <item name="colorOnBackground">@color/white</item>
+
+        <item name="colorSurface">#2E3B4E</item>
+        <item name="colorOnSurface">@color/white</item>
+
+        <item name="android:textColor">@color/black</item>
+        <item name="colorAccent">#FF5E33</item>
+        <item name="colorError">#BD0B0B</item>
+
+        <item name="isLightTheme">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:statusBarColor">@color/colorPrimaryVariant</item>
+        <item name="android:navigationBarColor">@color/colorPrimary</item>
+        <item name="android:enforceStatusBarContrast" tools:targetApi="q">true</item>
+        <item name="android:windowContentTransitions">true</item>
+        <item name="materialButtonStyle">@style/Widget.App.Button</item>
+        <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
     </style>
 
-    <style name="Theme.Atomica" parent="Base.Theme.Atomica" />
+    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/colorSecondaryVariant</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="cornerRadius">12dp</item>
+    </style>
+
+    <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>
