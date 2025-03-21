@@ -46,4 +46,7 @@
     <string name="app_logo">For the GenZ chemists</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="yt_trend">Trending YouTube Videos</string>
+    <string name="trending_articles">Trending Articles</string>
+    <string name="api_key_yt">5430f234ebc964dd1ca39b4c98572751c4ddadf23fb5157fce32e354e7aa9811</string>
 </resources>
