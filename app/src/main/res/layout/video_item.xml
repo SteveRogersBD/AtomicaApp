@@ -7,6 +7,7 @@
     app:cardCornerRadius="16dp"
     app:cardElevation="20dp">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -29,10 +30,11 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:layout_marginLeft="7dp"
                 android:id="@+id/chanel_img"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:layout_gravity="center_vertical"
+                android:layout_gravity="center"
                 android:src="@drawable/beaker" />
 
             <LinearLayout

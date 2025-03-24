@@ -1,27 +1,20 @@
 package com.example.atomica.fragments;
 
 import android.os.Bundle;
-
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-
-import com.example.atomica.R;
 import com.example.atomica.adapters.YTAdapter;
 import com.example.atomica.api.YouTubeApi;
 import com.example.atomica.databinding.FragmentContentBinding;
 import com.example.atomica.responses.YTResponse;
 import com.example.atomica.retroclients.RetrofitClient;
-
+import java.util.ArrayList;
 import java.util.List;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -30,6 +23,7 @@ public class ContentFragment extends Fragment {
 
     private FragmentContentBinding binding;
     private YTAdapter adapter;
+    ArrayList<YTResponse.Content> videos;
 
     public ContentFragment() {
         // Required empty public constructor
@@ -41,44 +35,46 @@ public class ContentFragment extends Fragment {
 
 
 
-        // Fetch and display YouTube videos
+        // Initialize adapter with an empty list and attach it immediately
+        videos = new ArrayList<>();
+        adapter = new YTAdapter(getContext(), videos);
+
+        // Set up RecyclerView with a horizontal LinearLayoutManager
+        binding.videoRecycler.setLayoutManager(new LinearLayoutManager(getContext(),
+                LinearLayoutManager.HORIZONTAL, false));
+        binding.videoRecycler.setAdapter(adapter);
+
+        // Fetch YouTube videos asynchronously
         fetchYouTubeVideos();
 
         return binding.getRoot();
     }
 
     private void fetchYouTubeVideos() {
-        YouTubeApi apiService = RetrofitClient.getClient().create(YouTubeApi.class);
+        YouTubeApi apiService = RetrofitClient.videoFit();
+        Call<YTResponse> call = apiService.searchVideos("Hydrogen");
 
-        Call<YTResponse> call = apiService.searchVideos("star wars", getString(R.string.api_key_yt));
         call.enqueue(new Callback<YTResponse>() {
             @Override
             public void onResponse(Call<YTResponse> call, Response<YTResponse> response) {
-                if (response.isSuccessful()) {
-                    Log.d("API_RESPONSE", "Success: " + response.body());
-                    if (response.body() != null) {
-                        List<YTResponse.VideoResult> videos = response.body().video_results;
-
-                        if (videos != null && !videos.isEmpty()) {
-                            adapter = new YTAdapter(getContext(), videos);
-                            binding.videoRecycler.setLayoutManager(new LinearLayoutManager(getContext(),
-                                    LinearLayoutManager.HORIZONTAL, false));
-                            binding.videoRecycler.setAdapter(adapter);
-                        } else {
-                            Log.e("API_ERROR", "No videos found.");
-                        }
+                if (response.isSuccessful() && response.body() != null) {
+                    List<YTResponse.Content> videoList = response.body().contents;
+                    if (videoList != null && !videoList.isEmpty()) {
+                        // Update the adapter with new data
+                        videos.clear();
+                        videos.addAll(videoList);
+                        adapter.notifyDataSetChanged();
                     } else {
-                        Log.e("API_ERROR", "Response body is null.");
+                        Log.e("API_ERROR", "No videos found in response.");
                     }
                 } else {
                     Log.e("API_ERROR", "Response failed: " + response.code() + " " + response.message());
                 }
             }
 
-
             @Override
             public void onFailure(Call<YTResponse> call, Throwable t) {
-                Log.e("API_ERROR", "Error: " + t.getMessage());
+                Log.e("API_ERROR", "Network error: " + t.getMessage());
             }
         });
     }

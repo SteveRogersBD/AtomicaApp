@@ -1,22 +1,15 @@
 package com.example.atomica.retroclients;
 
+import com.example.atomica.api.YouTubeApi;
+
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
-
-    private static final String BASE_URL = "https://serpapi.com/";
-
-    private static Retrofit retrofit = null;
-
-    public static Retrofit getClient() {
-        if (retrofit == null) {
-            retrofit = new Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
-        }
-        return retrofit;
-    }
+    public static Retrofit VideoFit = new Retrofit.Builder()
+            .baseUrl("https://youtube138.p.rapidapi.com/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build();
+    public static YouTubeApi videoFit(){return VideoFit.create(YouTubeApi.class);}
 }
 

@@ -1,6 +1,5 @@
 package com.example.atomica.adapters;
 
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -16,16 +15,17 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.example.atomica.R;
 import com.example.atomica.responses.YTResponse;
-import de.hdodenhof.circleimageview.CircleImageView;
 
 import java.util.List;
+
+import de.hdodenhof.circleimageview.CircleImageView;
 
 public class YTAdapter extends RecyclerView.Adapter<YTAdapter.ViewHolder> {
 
     private Context context;
-    private List<YTResponse.VideoResult> videoList;
+    private List<YTResponse.Content> videoList;
 
-    public YTAdapter(Context context, List<YTResponse.VideoResult> videoList) {
+    public YTAdapter(Context context, List<YTResponse.Content> videoList) {
         this.context = context;
         this.videoList = videoList;
     }
@@ -39,32 +39,53 @@ public class YTAdapter extends RecyclerView.Adapter<YTAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        YTResponse.VideoResult video = videoList.get(position);
+        YTResponse.Content content = videoList.get(position);
 
-        // Set title and description
-        holder.caption.setText(video.title);
-        holder.description.setText(video.description);
-        holder.views.setText(video.views + " views");
-        holder.date.setText("Published on " + video.published_date);
+        if (content.video != null) {
+            YTResponse.Video video = content.video;
 
-        // Load video thumbnail
-        Glide.with(context)
-                .load(video.thumbnail.mystatic)
-                .centerCrop()
-                .placeholder(R.drawable.thumb)
-                .into(holder.posterVideo);
+            // Set video title
+            holder.caption.setText(video.title != null ? video.title : "No title available");
 
-        // Load channel image
-        Glide.with(context)
-                .load(video.channel.thumbnail)
-                .placeholder(R.drawable.beaker)
-                .into(holder.channelImg);
+            // Set description snippet
+            holder.description.setText(video.descriptionSnippet != null ? video.descriptionSnippet : "No description available");
 
-        // Open YouTube video on click
-        holder.itemView.setOnClickListener(v -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(video.link));
-            context.startActivity(intent);
-        });
+            // Set views and date
+            if (video.stats != null) {
+                holder.views.setText(video.stats.views + " views");
+            } else {
+                holder.views.setText("No views data");
+            }
+
+            holder.date.setText(video.publishedTimeText != null ? video.publishedTimeText : "No date available");
+
+            // Load video thumbnail
+            if (video.thumbnails != null && !video.thumbnails.isEmpty()) {
+                Glide.with(context)
+                        .load(video.thumbnails.get(0).url)
+                        .centerCrop()
+                        .placeholder(R.drawable.thumb)
+                        .into(holder.posterVideo);
+            } else {
+                holder.posterVideo.setImageResource(R.drawable.thumb);
+            }
+
+            // Load channel image
+            if (video.author != null && video.author.avatar != null && !video.author.avatar.isEmpty()) {
+                Glide.with(context)
+                        .load(video.author.avatar.get(0).url)
+                        .placeholder(R.drawable.beaker)
+                        .into(holder.channelImg);
+            } else {
+                holder.channelImg.setImageResource(R.drawable.beaker);
+            }
+
+            // Open YouTube video on click
+            holder.itemView.setOnClickListener(v -> {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.youtube.com/watch?v=" + video.videoId));
+                context.startActivity(intent);
+            });
+        }
     }
 
     @Override

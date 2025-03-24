@@ -1,113 +1,78 @@
 package com.example.atomica.responses;
 
-import com.google.gson.annotations.SerializedName;
-
 import java.util.ArrayList;
 
 public class YTResponse {
-    public SearchMetadata search_metadata;
-    public SearchParameters search_parameters;
-    public SearchInformation search_information;
-    public ArrayList<ChannelResult> channel_results;
-    public ArrayList<LatestFromStarWar> latest_from_star_wars;
-    public ArrayList<VideoResult> video_results;
-    public ArrayList<ChannelsNewToYou> channels_new_to_you;
-    public Pagination pagination;
-    public SerpapiPagination serpapi_pagination;
-    public class Channel{
-        public String name;
-        public String link;
-        public boolean verified;
-        public String thumbnail;
+    public ArrayList<Content> contents;
+    public String cursorNext;
+    public Object didYouMean;
+    public int estimatedResults;
+    public ArrayList<FilterGroup> filterGroups;
+    public ArrayList<String> refinements;
+    public class Author{
+        public ArrayList<Avatar> avatar;
+        public ArrayList<Badge> badges;
+        public String canonicalBaseUrl;
+        public String channelId;
+        public String title;
     }
 
-    public class ChannelResult{
-        public int position_on_page;
-        public String title;
-        public String link;
-        public boolean verified;
-        public String handle;
-        public int subscribers;
-        public String description;
-        public String thumbnail;
+    public class Avatar{
+        public int height;
+        public String url;
+        public int width;
     }
 
-    public class ChannelsNewToYou{
-        public Object position_on_page;
+    public class Badge{
+        public String text;
+        public String type;
+    }
+
+    public class Content{
+        public String type;
+        public Video video;
+    }
+
+    public class Filter{
+        public String cursorSelect;
+        public String label;
+        public boolean selected;
+    }
+
+    public class FilterGroup{
+        public ArrayList<Filter> filters;
         public String title;
-        public String link;
-        public String serpapi_link;
-        public Channel channel;
-        public String published_date;
+    }
+
+    public class MovingThumbnail{
+        public int height;
+        public String url;
+        public int width;
+    }
+
+
+    public class Stats{
         public int views;
-        public String length;
-        public String description;
-        public ArrayList<String> extensions;
-        public Thumbnail thumbnail;
-    }
-
-    public class LatestFromStarWar{
-        public Object position_on_page;
-        public String title;
-        public String link;
-        public String serpapi_link;
-        public Channel channel;
-        public String published_date;
-        public int views;
-        public String length;
-        public String description;
-        public ArrayList<String> extensions;
-        public Thumbnail thumbnail;
-    }
-
-    public class Pagination{
-        public String current;
-        public String next;
-        public String next_page_token;
-    }
-    public class SearchInformation{
-        public int total_results;
-        public String video_results_state;
-    }
-
-    public class SearchMetadata{
-        public String id;
-        public String status;
-        public String json_endpoint;
-        public String created_at;
-        public String processed_at;
-        public String youtube_url;
-        public String raw_html_file;
-        public double total_time_taken;
-    }
-
-    public class SearchParameters{
-        public String engine;
-        public String search_query;
-    }
-
-    public class SerpapiPagination{
-        public String current;
-        public String next;
-        public String next_page_token;
     }
 
     public class Thumbnail{
-        @SerializedName("static")
-        public String mystatic;
+        public int height;
+        public String url;
+        public int width;
     }
 
-    public class VideoResult{
-        public int position_on_page;
+    public class Video{
+        public Author author;
+        public ArrayList<String> badges;
+        public String descriptionSnippet;
+        public boolean isLiveNow;
+        public int lengthSeconds;
+        public ArrayList<MovingThumbnail> movingThumbnails;
+        public String publishedTimeText;
+        public Stats stats;
+        public ArrayList<Thumbnail> thumbnails;
         public String title;
-        public String link;
-        public String serpapi_link;
-        public Channel channel;
-        public String published_date;
-        public int views;
-        public String length;
-        public String description;
-        public ArrayList<String> extensions;
-        public Thumbnail thumbnail;
+        public String videoId;
     }
+
 }

@@ -4,5 +4,7 @@
         android:topLeftRadius="10dp"
         android:bottomLeftRadius="10dp"
         />
-    <solid android:color="#37A266"/>
+    <gradient android:startColor="#FF9800"
+        android:centerColor="#FF5722"
+        android:endColor="#FF4081"/>
 </shape>
