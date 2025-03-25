@@ -52,7 +52,7 @@ public class YTAdapter extends RecyclerView.Adapter<YTAdapter.ViewHolder> {
 
             // Set views and date
             if (video.stats != null) {
-                holder.views.setText(video.stats.views + " views");
+                holder.views.setText(formatViewCount(video.stats.views));
             } else {
                 holder.views.setText("No views data");
             }
@@ -91,6 +91,21 @@ public class YTAdapter extends RecyclerView.Adapter<YTAdapter.ViewHolder> {
     @Override
     public int getItemCount() {
         return videoList.size();
+    }
+
+    private String formatViewCount(long views) {
+        if (views < 1000) {
+            return views + " views"; // Less than 1K, show as is
+        } else if (views < 1_000_000) {
+            // Format as K (thousands)
+            return String.format("%.1fK views", views / 1000.0);
+        } else if (views < 1_000_000_000) {
+            // Format as M (millions)
+            return String.format("%.1fM views", views / 1_000_000.0);
+        } else {
+            // Format as B (billions)
+            return String.format("%.1fB views", views / 1_000_000_000.0);
+        }
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {

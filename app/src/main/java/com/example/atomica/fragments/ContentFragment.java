@@ -8,6 +8,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
+
 import com.example.atomica.adapters.YTAdapter;
 import com.example.atomica.api.YouTubeApi;
 import com.example.atomica.databinding.FragmentContentBinding;
@@ -38,11 +40,8 @@ public class ContentFragment extends Fragment {
         // Initialize adapter with an empty list and attach it immediately
         videos = new ArrayList<>();
         adapter = new YTAdapter(getContext(), videos);
-
-        // Set up RecyclerView with a horizontal LinearLayoutManager
-        binding.videoRecycler.setLayoutManager(new LinearLayoutManager(getContext(),
-                LinearLayoutManager.HORIZONTAL, false));
         binding.videoRecycler.setAdapter(adapter);
+
 
         // Fetch YouTube videos asynchronously
         fetchYouTubeVideos();
@@ -64,6 +63,7 @@ public class ContentFragment extends Fragment {
                         videos.clear();
                         videos.addAll(videoList);
                         adapter.notifyDataSetChanged();
+                        //Toast.makeText(getContext(), response.body().toString(), Toast.LENGTH_SHORT).show();
                     } else {
                         Log.e("API_ERROR", "No videos found in response.");
                     }
