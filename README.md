@@ -19,30 +19,11 @@ Chemistry is the foundation of countless scientific breakthroughs, yet many stud
 We developed Atomica by leveraging a mix of modern tools, frameworks, and APIs to create a seamless and powerful learning experience:  
 
 - **Google News API & YouTube Data API**: Integrated to fetch trending chemistry-related news, articles, and videos for the feed.  
-- **Google Gemini API**: Powers the AI chatbot, enabling students to ask questions and receive insightful answers.  
-- **Three.js**: Used to build the interactive 3D periodic table for an immersive visual experience.  
-- **Android Studio**: The core platform for designing and developing the Android app.  
-- **Firebase**: Handles real-time data storage, user authentication, and social thread functionality.  
-- **TensorFlow Lite**: Deployed for lightweight, on-device AI models for testing, scoring, and feedback.  
-- **Flask**: Runs the backend server, connecting the app to AI models and external APIs.  
+- **Google Gemini API**: Powers the AI chatbot, enabling students to ask questions and receive insightful answers.    
+- **Android Studio**: The core platform for designing and developing the Android app.   
 - **Spring Boot**: Powers the server-side logic, linked to a MySQL database for storing user data and quiz results.  
-- **VS Code**: Used for coding, debugging, and testing APIs.  
-- **PubChem Dataset**: Sourced detailed chemical element data for the search feature.  
-
-## **Challenges we ran into**  
-
-- **API Limits**: Managing rate limits from multiple APIs (e.g., YouTube, Google News) while ensuring a smooth user experience was tricky.  
-- **3D Rendering**: Optimizing the 3D periodic table for performance on various Android devices without compromising quality took extra effort.  
-- **AI Accuracy**: Fine-tuning the AI chatbot and testing models to provide accurate, chemistry-specific responses required multiple iterations.  
-- **Social Integration**: Building a secure and scalable social thread feature that encourages meaningful interaction posed design and backend challenges.  
-
-## **Accomplishments & What we learned**  
-
-- **App Development**: We successfully built a feature-rich Android app, integrating a 3D periodic table, AI tools, and a social platform—balancing functionality with an intuitive interface.  
-- **Team Synergy**: Coordinating between frontend, backend, and AI teams taught us the value of clear communication and shared goals.  
-- **Creative Problem-Solving**: We learned to optimize resource-heavy features (like 3D rendering and AI) for mobile devices, enhancing our technical adaptability.  
-
----
+- **IntelliJ Idea**: Used for coding, debugging, and testing APIs.  
+- **PostGreSQL**: The main database for handling all sorts of data.  
 
 ## **What's next for Atomica**  
 
