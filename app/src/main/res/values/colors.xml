@@ -7,4 +7,7 @@
     <color name="colorSecondary">#39FF14</color> <!-- Neon Green -->
     <color name="colorSecondaryVariant">#2ECC71</color> <!-- Softer Green -->
     <color name="colorBackgroundDark">#1A2526</color> <!-- Matches primary for consistency -->
+    <color name="purple_200">#BB86FC</color>
+    <color name="orange">#FF5722</color>
+
 </resources>

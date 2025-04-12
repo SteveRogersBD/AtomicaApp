@@ -28,11 +28,7 @@
         <item name="textAppearanceButton">@style/TextAppearance.App.Button</item>
     </style>
 
-    <style name="Widget.App.Button" parent="Widget.MaterialComponents.Button">
-        <item name="backgroundTint">@color/colorSecondaryVariant</item>
-        <item name="android:textColor">@android:color/white</item>
-        <item name="cornerRadius">12dp</item>
-    </style>
+
 
     <style name="TextAppearance.App.Button" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textSize">20sp</item>
@@ -45,6 +41,36 @@
         <item name="android:textColor">@color/white</item>
     </style>
 
+    <style name="ShapeAppearanceOverlay.TopSectionCurve" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">50%</item>
+        <item name="cornerSizeBottomRight">50%</item>
+    </style>
 
+
+    <!-- Text appearances for the Sign Up screen -->
+    <style name="TextAppearance.YourAppName.SignUpHeading" parent="TextAppearance.Material3.HeadlineLarge">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="TextAppearance.YourAppName.SignUpSubheading" parent="TextAppearance.Material3.TitleMedium">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/colorSecondary</item>
+    </style>
+
+    <style name="TextAppearance.YourAppName.SignUpPrompt" parent="TextAppearance.Material3.BodyLarge">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Widget.App.Button" parent="Widget.Material3.Button" tools:ignore="DuplicateDefinition">
+        <item name="android:minHeight">40dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:padding">5dp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="background">@drawable/button_grad</item>
+    </style>
 
 </resources>
