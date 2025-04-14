@@ -3,6 +3,7 @@ package com.example.atomica.activities;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,6 +18,8 @@ import com.example.atomica.responses.ApiResponse;
 import com.example.atomica.responses.User;
 import com.example.atomica.retroclients.RetrofitClient;
 import com.example.atomica.roomDB.UserDB;
+
+import java.util.concurrent.Executors;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -91,14 +94,14 @@ public class SignInActivity extends AppCompatActivity {
 
     private void retrieveAndStoreUser(String token) {
         String breaerToken = "Bearer "+token;
-        Call<ApiResponse>call = localAPI.getUser(breaerToken);
-        call.enqueue(new Callback<ApiResponse>() {
+        Call<ApiResponse<User>>call = localAPI.getUser(breaerToken);
+        call.enqueue(new Callback<ApiResponse<User>>() {
             @Override
-            public void onResponse(Call<ApiResponse> call, Response<ApiResponse> response) {
+            public void onResponse(Call<ApiResponse<User>> call, Response<ApiResponse<User>> response) {
                 try{
                     if(response.isSuccessful() && response.body()!=null)
                     {
-                        User user = (User) response.body().data;
+                        User user = response.body().data;
                         UserDB rm = Room.databaseBuilder(SignInActivity.this,
                                 UserDB.class, "USERDB").build();
                         com.example.atomica.roomDB.User myUser = new com.example.atomica.roomDB.User();
@@ -111,24 +114,33 @@ public class SignInActivity extends AppCompatActivity {
                         myUser.dp = user.dp;
                         myUser.about = user.about;
                         myUser.createdAt = user.createdAt;
-                        rm.userDao().insertUser(myUser);
-                        Toast.makeText(SignInActivity.this, myUser.fullName,
+
+                        Executors.newSingleThreadExecutor().execute(() -> {
+                            rm.userDao().insertUser(myUser);
+                            runOnUiThread(() -> {
+                                Toast.makeText(SignInActivity.this, "User saved to DB",
+                                        Toast.LENGTH_LONG).show();
+                            });
+                        });
+                        Toast.makeText(SignInActivity.this, myUser.email,
                                 Toast.LENGTH_LONG).show();
                     }
                     else{
                         Toast.makeText(SignInActivity.this, response.message(),
                                 Toast.LENGTH_LONG).show();
+                        Log.e("Else block",response.message());
                     }
                 }catch (Exception e)
                 {
                     Toast.makeText(SignInActivity.this, e.getMessage(),
                             Toast.LENGTH_LONG).show();
+                    Log.e("Catch block",e.getMessage());
                 }
             }
 
             @Override
-            public void onFailure(Call<ApiResponse> call, Throwable throwable) {
-
+            public void onFailure(Call<ApiResponse<User>> call, Throwable throwable) {
+                Log.e("onFailure",throwable.getMessage());
             }
         });
     }

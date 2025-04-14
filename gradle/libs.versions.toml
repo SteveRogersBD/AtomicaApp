@@ -5,6 +5,7 @@ junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
 appcompat = "1.6.1"
+lottieVersion = "6.6.6"
 material = "1.10.0"
 activity = "1.8.0"
 constraintlayout = "2.1.4"
@@ -14,7 +15,10 @@ lottie = "6.6.0"
 coreSplashscreen = "1.0.1"
 materialVersion = "1.12.0"
 circleimageview = "3.1.0"
+picasso = "2.8"
 retrofit = "2.11.0"
+roomRuntime = "2.7.0"
+swiperefreshlayout = "1.1.0"
 
 [libraries]
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
@@ -23,6 +27,7 @@ junit = { group = "junit", name = "junit", version.ref = "junit" }
 ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+lottie-v666 = { module = "com.airbnb.android:lottie", version.ref = "lottieVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
@@ -32,7 +37,11 @@ lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie"
 core-splashscreen = { group = "androidx.core", name = "core-splashscreen", version.ref = "coreSplashscreen" }
 google-material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 circleimageview = { group = "de.hdodenhof", name = "circleimageview", version.ref = "circleimageview" }
+picasso = { module = "com.squareup.picasso:picasso", version.ref = "picasso" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
+room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
+room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }

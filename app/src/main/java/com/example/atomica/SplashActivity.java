@@ -1,24 +1,39 @@
 package com.example.atomica;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
+import android.view.WindowManager;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
+import com.example.atomica.databinding.ActivitySplashBinding;
 
+@SuppressLint("CustomSplashScreen")
 public class SplashActivity extends AppCompatActivity {
+
+    ActivitySplashBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_splash);
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
-            Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
-            return insets;
-        });
+        binding = ActivitySplashBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        //getSupportActionBar().hide();
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+        Thread td = new Thread() {
+            @Override
+            public void run() {
+                try {
+                    sleep(3000);
+                    startActivity(new Intent(SplashActivity.this,
+                            MainActivity.class));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                } finally {
+                    finish();
+                }
+            }
+
+        };td.start();
     }
 }

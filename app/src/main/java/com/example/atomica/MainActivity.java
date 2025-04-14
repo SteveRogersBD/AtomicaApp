@@ -4,17 +4,22 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
+import androidx.room.Room;
 
+import com.example.atomica.roomDB.User;
+import com.example.atomica.roomDB.UserDB;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.concurrent.Executors;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         retrieveJWT();
+        getUser();
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().
                 findFragmentById(R.id.fragmentContainer);
         navController = navHostFragment.getNavController();
@@ -45,6 +51,23 @@ public class MainActivity extends AppCompatActivity {
         // Set the navigation bar color to the top color of the gradient as well (optional)
         window.setNavigationBarColor(topColor);
     }
+
+    private void getUser() {
+        UserDB rm = Room.databaseBuilder(MainActivity.this, UserDB.class, "USERDB")
+                .build();
+
+        Executors.newSingleThreadExecutor().execute(() -> {
+            User user = rm.userDao().getUser();
+            runOnUiThread(() -> {
+                if (user != null) {
+                    Toast.makeText(MainActivity.this, user.email, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "User not found", Toast.LENGTH_SHORT).show();
+                }
+            });
+        });
+    }
+
 
     private void retrieveJWT() {
         sp = getSharedPreferences("JWT_TOKEN",MODE_PRIVATE);
