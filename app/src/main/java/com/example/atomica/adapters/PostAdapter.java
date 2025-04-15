@@ -16,6 +16,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.atomica.R;
 import com.example.atomica.TimeFormatter;
+import com.example.atomica.activities.PostActivity;
 import com.example.atomica.api.LocalAPI;
 import com.example.atomica.responses.ApiResponse;
 import com.example.atomica.responses.Post;
@@ -58,14 +59,14 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder>{
         getCreatedAt(postItem.createdAt,holder.createdAt);
         holder.commentCount.setText("200");
         //holder.commentCount.setText(postItem.commentCount+"");
-//        holder.itemView.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(context, PostActivity.class);
-//                intent.putExtra("id",postItem.postId);
-//                context.startActivity(intent);
-//            }
-//        });
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, PostActivity.class);
+                intent.putExtra("id",postItem.id);
+                context.startActivity(intent);
+            }
+        });
     }
 
     private void getCreatedAt(String createdAt, TextView tv) {

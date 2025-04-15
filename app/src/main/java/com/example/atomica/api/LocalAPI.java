@@ -1,6 +1,7 @@
 package com.example.atomica.api;
 
 import com.example.atomica.responses.ApiResponse;
+import com.example.atomica.responses.Comment;
 import com.example.atomica.responses.Post;
 import com.example.atomica.responses.User;
 
@@ -31,5 +32,12 @@ public interface LocalAPI {
 
     @GET("public/user/{id}")
     Call<ApiResponse<User>>getUserById(@Path("id") long id);
+
+    @GET("post/{id}")
+    Call<ApiResponse<Post>>getPostById(@Path("id") long id);
+
+    @POST
+    Call<ApiResponse<Comment>>createComment(@Query ("postId") long postId,
+                                            @Header("Authorization") String token);
 
 }

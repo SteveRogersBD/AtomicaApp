@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@drawable/base_bg">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/colorPrimaryVariant"
+        android:id="@+id/toolbar_post"
+        android:layout_marginBottom="20dp" />
+
+    <RelativeLayout
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/base_bg">
+
+        <!-- Scrollable Content -->
+        <LinearLayout
+            android:id="@+id/contentLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_above="@+id/bottomInputLayout">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fillViewport="true">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- Profile Section -->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="16dp"
+                        android:background="#FF5722">
+
+                        <de.hdodenhof.circleimageview.CircleImageView
+                            android:id="@+id/profileImage_PA"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/user"
+                            app:tint="@color/white"
+                            android:scaleType="centerCrop" />
+
+                        <TextView
+                            android:id="@+id/username_PA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Manojkumar"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp"
+                            android:fontFamily="sans-serif-medium"
+                            android:layout_toEndOf="@id/profileImage_PA"
+                            android:layout_marginStart="8dp"
+                            android:layout_alignTop="@id/profileImage_PA" />
+
+                        <TextView
+                            android:id="@+id/role_PA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Farmer"
+                            android:textColor="#4B2B2B"
+                            android:textSize="14sp"
+                            android:layout_toEndOf="@id/profileImage_PA"
+                            android:layout_marginStart="8dp"
+                            android:layout_below="@id/username_PA" />
+
+                        <TextView
+                            android:id="@+id/postDate_PA"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Dec 4 2024"
+                            android:textColor="#4B2B2B"
+                            android:textSize="12sp"
+                            android:layout_alignParentEnd="true"
+                            android:layout_alignTop="@id/profileImage_PA" />
+                    </RelativeLayout>
+
+                    <ImageView
+                        android:id="@+id/postImage_PA"
+                        android:layout_width="match_parent"
+                        android:layout_height="400dp"
+                        android:src="@drawable/beaker"
+                        android:scaleType="fitXY"
+                        android:layout_marginTop="16dp" />
+
+                    <TextView
+                        android:id="@+id/caption_PA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tomato"
+                        android:textColor="#FFFFFF"
+                        android:textSize="16sp"
+                        android:fontFamily="sans-serif-medium"
+                        android:layout_marginTop="8dp" />
+
+                    <TextView
+                        android:id="@+id/description_PA"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="India | Insecticides • Fungicides • Herbicides | Many plants | Shows on Leaf • Stem • Fruit"
+                        android:textColor="#AAAAAA"
+                        android:textSize="14sp"
+                        android:lineSpacingExtra="4dp"
+                        android:layout_marginTop="4dp" />
+                </LinearLayout>
+            </ScrollView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comment_recycler"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp" />
+        </LinearLayout>
+
+        <!-- Bottom Input Layout -->
+        <LinearLayout
+            android:id="@+id/bottomInputLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:layout_margin="10dp"
+            android:gravity="bottom">
+
+            <EditText
+                android:id="@+id/messageInput_PA"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Your message"
+                android:textColor="@color/black"
+                android:textColorHint="#888888"
+                android:padding="12dp"
+                android:inputType="text" />
+
+            <ImageView
+                android:id="@+id/sendButton_PA"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/send"
+                android:tint="@color/orange"
+                android:background="?attr/selectableItemBackground"
+                android:layout_marginStart="8dp"
+                tools:ignore="UseAppTint" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- Scrollable Content -->
+
+</LinearLayout>

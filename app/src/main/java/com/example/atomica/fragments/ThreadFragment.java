@@ -45,12 +45,24 @@ public class ThreadFragment extends Fragment {
         binding.postRecycler.setLayoutManager(new LinearLayoutManager(getContext(),
                 LinearLayoutManager.HORIZONTAL,false));
         binding.postRecycler.setAdapter(adapter);
+        fetchPosts();
+        binding.swipeRefreshLayout.setOnRefreshListener(() -> {
+            fetchPosts();
+            binding.swipeRefreshLayout.setRefreshing(false);
+        });
+
         return binding.getRoot();
     }
 
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onDestroyView()
+    {
+        super.onDestroyView();
+        binding = null;
+    }
+
+    public void fetchPosts(){
         localAPI = RetrofitClient.localApi();
         Call<ApiResponse<List<Post>>> call = localAPI.getAllPosts();
         call.enqueue(new Callback<ApiResponse<List<Post>>>() {
@@ -80,14 +92,6 @@ public class ThreadFragment extends Fragment {
 
             }
         });
-    }
-
-
-    @Override
-    public void onDestroyView()
-    {
-        super.onDestroyView();
-        binding = null;
     }
 
 }
