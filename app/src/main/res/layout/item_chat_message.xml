@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <!-- User Message -->
+    <LinearLayout
+        android:id="@+id/user_message_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="48dp"
+            app:cardBackgroundColor="#FF39FF14"
+            app:cardCornerRadius="18dp"
+            app:cardElevation="4dp">
+
+            <TextView
+                android:id="@+id/user_message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="12dp"
+                android:textColor="#FF000000"
+                android:textSize="16sp"
+                android:maxWidth="280dp"
+                android:text="User message here" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <!-- User avatar -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginStart="8dp"
+            android:layout_gravity="bottom"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="#FF39FF14"
+            app:strokeColor="#FFFFFFFF"
+            app:strokeWidth="1dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="👤"
+                android:textSize="16sp" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+
+    <!-- Bot Message -->
+    <LinearLayout
+        android:id="@+id/bot_message_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="start"
+        android:layout_marginBottom="8dp"
+        android:visibility="gone">
+
+        <!-- Bot avatar -->
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="8dp"
+            android:layout_gravity="bottom"
+            app:cardCornerRadius="16dp"
+            app:cardBackgroundColor="#FF2E3B4E"
+            app:strokeColor="#FF39FF14"
+            app:strokeWidth="1dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/beaker"
+                android:tint="#FF39FF14" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginEnd="48dp">
+
+            <!-- Bot message bubble -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardBackgroundColor="#B3000000"
+                app:cardCornerRadius="18dp"
+                app:cardElevation="4dp"
+                app:strokeColor="#FF39FF14"
+                app:strokeWidth="1dp">
+
+                <TextView
+                    android:id="@+id/bot_message_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="12dp"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="16sp"
+                    android:maxWidth="280dp"
+                    android:text="Bot response here" />
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Message timestamp -->
+            <TextView
+                android:id="@+id/message_timestamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="12dp"
+                android:text="12:34 PM"
+                android:textColor="#80FFFFFF"
+                android:textSize="10sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- System Message (for notifications, etc.) -->
+    <LinearLayout
+        android:id="@+id/system_message_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginVertical="8dp"
+        android:visibility="gone">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardBackgroundColor="#4D39FF14"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="2dp">
+
+            <TextView
+                android:id="@+id/system_message_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:textColor="#FF39FF14"
+                android:textSize="12sp"
+                android:textStyle="italic"
+                android:text="⚡ System message" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</LinearLayout>

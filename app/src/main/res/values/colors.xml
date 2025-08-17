@@ -5,6 +5,7 @@
     <color name="colorPrimary">#1A2526</color> <!-- Deep Navy Blue -->
     <color name="colorPrimaryVariant">#2E3B4E</color> <!-- Dark Slate Gray -->
     <color name="colorSecondary">#39FF14</color> <!-- Neon Green -->
+    <color name="neon_green">#39FF14</color> <!-- Neon Green alias -->
     <color name="colorSecondaryVariant">#2ECC71</color> <!-- Softer Green -->
     <color name="colorBackgroundDark">#1A2526</color> <!-- Matches primary for consistency -->
     <color name="purple_200">#BB86FC</color>

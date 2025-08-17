@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="60dp"
+    android:height="60dp"
+    android:viewportWidth="60"
+    android:viewportHeight="60">
+
+    <!-- Central Atom -->
+    <path
+        android:fillColor="@color/colorSecondary"
+        android:pathData="M30,22
+                          A8,8 0 1,1 29.9,22
+                          Z" />
+
+    <!-- Bonds -->
+    <path
+        android:strokeColor="@color/colorSecondary"
+        android:strokeWidth="3"
+        android:pathData="M22,30 L10,20" />
+    <path
+        android:strokeColor="@color/colorSecondary"
+        android:strokeWidth="3"
+        android:pathData="M38,30 L50,20" />
+    <path
+        android:strokeColor="@color/colorSecondary"
+        android:strokeWidth="3"
+        android:pathData="M30,22 L30,10" />
+    <path
+        android:strokeColor="@color/colorSecondary"
+        android:strokeWidth="3"
+        android:pathData="M30,38 L30,50" />
+
+    <!-- Outer Atoms -->
+    <path
+        android:fillColor="@color/colorSecondaryVariant"
+        android:pathData="M10,15
+                          A5,5 0 1,1 9.9,15
+                          Z" />
+    <path
+        android:fillColor="@color/colorSecondaryVariant"
+        android:pathData="M50,15
+                          A5,5 0 1,1 49.9,15
+                          Z" />
+    <path
+        android:fillColor="@color/colorSecondaryVariant"
+        android:pathData="M30,5
+                          A5,5 0 1,1 29.9,5
+                          Z" />
+    <path
+        android:fillColor="@color/colorSecondaryVariant"
+        android:pathData="M30,45
+                          A5,5 0 1,1 29.9,45
+                          Z" />
+
+</vector>

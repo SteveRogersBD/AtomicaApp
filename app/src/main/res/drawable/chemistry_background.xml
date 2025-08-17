@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="400dp"
+    android:height="800dp"
+    android:viewportWidth="400"
+    android:viewportHeight="800">
+    
+    <!-- Background -->
+    <path
+        android:fillColor="@color/colorPrimary"
+        android:pathData="M0,0 L400,0 L400,800 L0,800 Z" />
+    
+    <!-- Chemistry Lab Equipment Silhouettes -->
+    <!-- Beaker 1 -->
+    <path
+        android:fillColor="#1A39FF14"
+        android:pathData="M50,200 L70,200 L75,220 L45,220 Z M52,220 L68,220 L70,240 L50,240 Z" />
+    
+    <!-- Test Tube -->
+    <path
+        android:fillColor="#1A2ECC71"
+        android:pathData="M320,150 L325,150 L325,180 C325,185 320,190 315,190 C310,190 305,185 305,180 L305,150 L310,150 Z" />
+    
+    <!-- Molecule Structure -->
+    <path
+        android:fillColor="#2639FF14"
+        android:pathData="M150,400 C155,400 160,405 160,410 C160,415 155,420 150,420 C145,420 140,415 140,410 C140,405 145,400 150,400 Z" />
+    
+    <!-- Connecting Lines -->
+    <path
+        android:strokeColor="#1A39FF14"
+        android:strokeWidth="2"
+        android:pathData="M160,410 L180,430" />
+    
+    <!-- Another Atom -->
+    <path
+        android:fillColor="#2639FF14"
+        android:pathData="M180,430 C185,430 190,435 190,440 C190,445 185,450 180,450 C175,450 170,445 170,440 C170,435 175,430 180,430 Z" />
+    
+</vector>
