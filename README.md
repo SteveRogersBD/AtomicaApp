@@ -237,8 +237,8 @@ The app uses Room database for local storage. No additional setup required for l
 We welcome contributions from the community! Here's how you can help:
 
 ### Ways to Contribute
-- 🐛 **Bug Reports**: Found a bug? [Open an issue](https://github.com/SteveRogersBD/atomica/issues)
-- 💡 **Feature Requests**: Have an idea? [Start a discussion](https://github.com/SteveRogersBD/atomica/discussions)
+- 🐛 **Bug Reports**: Found a bug? [Open an issue](https://github.com/SteveRogersBD/AtomicaApp/issues)
+- 💡 **Feature Requests**: Have an idea? [Start a discussion](https://github.com/SteveRogersBD/AtomicaApp/discussions)
 - 🔧 **Code Contributions**: Submit pull requests for bug fixes or new features
 - 📖 **Documentation**: Help improve our docs and tutorials
 
@@ -248,12 +248,6 @@ We welcome contributions from the community! Here's how you can help:
 3. Commit your changes (`git commit -m 'Add amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
