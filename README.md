@@ -237,8 +237,8 @@ The app uses Room database for local storage. No additional setup required for l
 We welcome contributions from the community! Here's how you can help:
 
 ### Ways to Contribute
-- 🐛 **Bug Reports**: Found a bug? [Open an issue](https://github.com/yourusername/atomica/issues)
-- 💡 **Feature Requests**: Have an idea? [Start a discussion](https://github.com/yourusername/atomica/discussions)
+- 🐛 **Bug Reports**: Found a bug? [Open an issue](https://github.com/SteveRogersBD/atomica/issues)
+- 💡 **Feature Requests**: Have an idea? [Start a discussion](https://github.com/SteveRogersBD/atomica/discussions)
 - 🔧 **Code Contributions**: Submit pull requests for bug fixes or new features
 - 📖 **Documentation**: Help improve our docs and tutorials
 
@@ -263,9 +263,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 | Role | Name | Contact |
 |------|------|---------|
-| **Lead Developer** | Your Name | [@yourusername](https://github.com/yourusername) |
-| **UI/UX Designer** | Designer Name | [@designer](https://github.com/designer) |
-| **Backend Developer** | Backend Dev | [@backend](https://github.com/backend) |
+| **Lead Developer** | Your Name | [@yourusername](https://github.com/SteveRogersBD) |
+| **UI/UX Designer** | Designer Name | [@designer](https://github.com/SteveRogersBD) |
+| **Backend Developer** | Backend Dev | [@backend](https://github.com/SteveRogersBD) |
 
 </div>
 
@@ -277,7 +277,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - 📧 **Email**: support@atomica-app.com
 - 💬 **Discord**: [Join our community](https://discord.gg/atomica)
 - 📱 **Twitter**: [@AtomicaApp](https://twitter.com/AtomicaApp)
-- 🐛 **Issues**: [GitHub Issues](https://github.com/yourusername/atomica/issues)
+- 🐛 **Issues**: [GitHub Issues](https://github.com/SteveRogersBD/atomica/issues)
 
 ### FAQ
 **Q: Is Atomica free to use?**
